@@ -40,6 +40,12 @@ def move_doodle():
     keys = pygame.key.get_pressed()
     if (keys[pygame.K_LEFT] or keys[pygame.K_a]):
         doodle_dict["image"] = doodle_left_img
+        doodle_dict["direction"] = "left"
+        doodle_dict["x"] -= DOODLE_SPEED
+    elif (keys[pygame.K_RIGHT] or keys[pygame.K_d]):
+        doodle_dict["image"] = doodle_right_img
+        doodle_dict["direction"] = "right"
+        doodle_dict["x"] += DOODLE_SPEED
     # TODO : Implémentez le Screen Wrap pour qu'une partie du Doodle puisse
     # sortir d'un côté avant de réapparaître de l'autre.
     # N'utilisez pas de dimensions numériques écrites directement.
@@ -60,6 +66,12 @@ def move_platforms():
     # TODO : Parcourez les plateformes et gérez le déplacement des plateformes
     # bleues encore actives. Elles doivent rester dans la fenêtre en inversant
     # leur vitesse lorsqu'elles atteignent un bord.
+    for platform in PLATFORMS:
+        if platform["type"] == "blue":
+            newPosition = platform["x"] + platform["vx"]
+            if newPosition < 0 or newPosition > SCREEN_WIDTH - PLATFORM_WIDTH: 
+                platform["vx"] *= -1
+            platform["x"] = newPosition
 
     return
 
