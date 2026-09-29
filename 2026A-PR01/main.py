@@ -34,7 +34,7 @@ while running:
     if doodle_dict["lives"] <= 0:
         show_game_over_message()
         continue
-
+    
     # 3. Logique du jeu
     move_doodle()
     apply_gravity()
