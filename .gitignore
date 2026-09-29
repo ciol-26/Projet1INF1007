@@ -1,0 +1,19 @@
+# Environnements virtuels / conda
+venv/
+env/
+.venv/
+__pycache__/
+*.pyc
+
+# VS Code
+.vscode/
+
+# Fichiers système
+.DS_Store
+Thumbs.db
+
+# Fichiers de configuration locale
+*.env
+
+# Sorties / fichiers temporaires
+*.log
